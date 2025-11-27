@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+}
+.glava {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  width: 80px;
+  height: auto;
+}
+.back-link {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  font-size: 16px;
+  color: grey;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.back-link:hover {
+  opacity: 0.9; 
+  text-decoration: underline;
+  color: #3b82f6;
+}
+.title {
+  text-align: center;
+  color: #0f172a; 
+  font-size: 36px;
+  font-weight: 800;
+  margin-top: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mail input {
+  width: 370px;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  color: #374151;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+.mail input::placeholder {
+  color: #6b7280;
+}
+.mail input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #4f46e5;
+}
+.password {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.password input {
+  width: 370px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+}
+.password input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #4f46e5; 
+}
+.password p {
+  width: 340px;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 6px;
+  text-align: left;
+}
+.name-fields {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.name-fields input {
+  width: 165px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+}
+.name-fields input:focus {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #4f46e5;
+}
+.date-field,
+.zip-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.date-field input,
+.zip-field input {
+  width: 370px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+.date-field input:focus,
+.zip-field input:focus {
+  box-shadow: 0 0 0 2px #4f46e5;
+}
+.country-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.country-field select {
+  width: 400px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+  color: #6b7280;
+  font-family: Arial, sans-serif;
+}
+.country-field select:focus {
+  box-shadow: 0 0 0 2px #4f46e5;
+  color: #0f172a;
+}
+.phone-field {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.phone-field select,
+.phone-field input {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f3f4f6;
+  font-size: 15px;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+.phone-field select {
+  width: 170px;
+  color: #6b7280;
+}
+.phone-field select:focus,
+.phone-field input:focus {
+  box-shadow: 0 0 0 2px #4f46e5;
+}
+.crta {
+  width: 400px;
+  border-top: 1px solid #e5e7eb;
+  margin: 25px auto;
+}
+.text, .text2 {
+  width: 400px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 auto 12px;
+  font-family: Arial, sans-serif;
+}
+.text a,
+.text2 a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+.text a:hover,
+.text2 a:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+.continue-btn {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+  padding: 14px;
+  background: linear-gradient(90deg, #3b82f6, #4f46e5);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  margin: 20px auto 40px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.continue-btn:hover {
+  opacity: 0.9;
+}
+.footer {
+  width: 100%;
+  background-color: #f3f4f6; 
+  text-align: center;
+  padding: 30px 0;
+  color: #1f2937;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: auto; 
+}
+.footer-logo {
+  width: 40px;
+  height: auto;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+.footer-text {
+  font-size: 14px;
+  color: #4b5563; 
+  margin: 0 0 12px 0;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.footer-links a {
+  color: grey; 
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-links a:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+  color: #3b82f6;
+}
+.swal2-confirm-custom {
+    background: linear-gradient(90deg, #3b82f6, #4f46e5) !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    padding: 14px 0 !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border: none !important;
+    cursor: pointer !important;
+}
+.swal2-confirm-custom:hover {
+    opacity: 0.9 !important;
+}
+@media (max-width: 480px) {
+  .back-link { top: 20px; left: 20px; font-size: 14px; }
+  .title { font-size: 28px; margin-top: 60px; }
+  .password input,
+  .date-field input,
+  .zip-field input,
+  .country-field select,
+  .text,
+  .text2 { width: 90%; max-width: 370px; }
+  .password p { width: 88%; }
+  .name-fields { flex-direction: column; width: 90%; }
+  .name-fields input,
+  .phone-field select,
+  .phone-field input { width: 100%; }
+  .phone-field { flex-direction: column; width: 90%; }
+  .crta { width: 90%; }
+  .footer { padding: 20px 0; }
+}
+@media (max-width: 768px) {
+  .password input,
+  .date-field input,
+  .zip-field input,
+  .country-field select,
+  .text,
+  .text2 { width: 85%; }
+  .name-fields input,
+  .phone-field select,
+  .phone-field input { width: 48%; }
+  .crta { width: 80%; }
+}

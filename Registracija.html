@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <title>Real Madrid CF | Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="glava">
+        <img class="logo" src="Slike/real.webp" alt="logo">
+    </div>
+    
+    <a href="index.html" class="back-link">← Back</a>
+
+    <h1 class="title">Become a<br>Madridista</h1>
+    
+    <div class="mail">
+        <input type="text" id="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="password">
+        <input type="password" id="password" placeholder="Create your password" required>
+        <p>Your password must contain between 8 and 24 alphanumeric characters and at least 1 letter.</p>
+    </div>
+    
+    <div class="name-fields">
+        <input type="text" id="firstName" placeholder="Name" required>
+        <input type="text" id="lastName" placeholder="Last name" required>
+    </div>
+    
+    <div class="date-field">
+        <input type="date" required onkeydown="return false;" oninput="return false;">
+    </div>
+    
+    <div class="zip-field">
+        <input type="text" placeholder="Zip code" required id="zipCode" maxlength="4">
+    </div>
+    
+    <div class="country-field">
+        <select required>
+            <option value="" disabled selected>Country of residence</option>
+            <option>Slovenia</option>
+            <option>Croatia</option>
+            <option>Serbia</option>
+            <option>Bosnia and Herzegovina</option>
+            <option>Austria</option>
+            <option>Italy</option>
+            <option>Germany</option>
+        </select>
+    </div>
+    
+    <div class="phone-field">
+        <select class="prefix" required>
+            <option value="" disabled selected>Prefix</option>
+            <option value="+386">🇸🇮 +386 Slovenia</option>
+            <option value="+385">🇭🇷 +385 Croatia</option>
+            <option value="+381">🇷🇸 +381 Serbia</option>
+            <option value="+387">🇧🇦 +387 Bosnia and Herzegovina</option>
+            <option value="+43">🇦🇹 +43 Austria</option>
+            <option value="+39">🇮🇹 +39 Italy</option>
+            <option value="+49">🇩🇪 +49 Germany</option>
+        </select>
+
+        <input type="tel" placeholder="Phone number" required pattern="[0-9]{9}" id="phoneNumber" maxlength="9">
+    </div>
+    
+    <hr class="crta">
+
+    <p class="text">
+        We will use your data to manage our relationship with you,
+        recover your Madridista status in case of subscription incidents,
+        comply with our accounting and tax obligations, send you
+        communications about special events and, very exceptionally,
+        for control, security, legal defense and regulatory compliance
+        purposes. You can exercise your data protection rights at
+        <a href="mailto:oposicion@corp.realmadrid.com">oposicion@corp.realmadrid.com</a>, 
+        and obtain more information in 
+        <a href="#">Privacy Policy</a>.
+    </p>
+
+    <p class="text2">
+        By clicking "Accept and continue", you agree to 
+        <a href="#">General Conditions of the Madridista Program</a>.
+    </p>
+
+    <button class="continue-btn" id="continueBtn">Accept and continue</button>
+    
+    <div class="footer">
+        <img src="Slike/real.webp" alt="Real Madrid Logo" class="footer-logo">
+        <p class="footer-text">Real Madrid © 2025. All rights reserved.</p>
+        <div class="footer-line"></div>
+        <div class="footer-links">
+            <a href="#">Legal notice</a>
+            <span>•</span>
+            <a href="#">Cookies policy</a>
+            <span>•</span>
+            <a href="#">Privacy policy</a>
+            <span>•</span>
+            <a href="#">realmadrid.com</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const continueBtn = document.getElementById('continueBtn');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const phoneInput = document.getElementById('phoneNumber');
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const zipCode = document.getElementById('zipCode');
+
+        const requiredFields = [
+            emailInput,
+            passwordInput,
+            firstName,
+            lastName,
+            document.querySelector('.date-field input'),
+            zipCode,
+            document.querySelector('.country-field select'),
+            document.querySelector('.phone-field select'),
+            phoneInput
+        ];
+
+        phoneInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 9) this.value = this.value.slice(0, 9);
+        });
+
+        [firstName, lastName].forEach(input => {
+            input.addEventListener('input', function() {
+                this.value = this.value.replace(/[^A-Za-zČčŠšŽžÁÉÍÓÚáéíóúÄäÖöÜü ]/g, '');
+            });
+        });
+
+        zipCode.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 4) this.value = this.value.slice(0, 4);
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePassword(password) {
+            const re = /^(?=.*[A-Za-z])[A-Za-z0-9]{8,24}$/;
+            return re.test(password);
+        }
+
+        function validatePhone(phone) {
+            return /^[0-9]{9}$/.test(phone);
+        }
+
+        function validateZip(zip) {
+            return /^[0-9]{4}$/.test(zip);
+        }
+
+        continueBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            let allFilled = true;
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) allFilled = false;
+            });
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const zip = zipCode.value.trim();
+
+            if (!allFilled) {
+                Swal.fire('Error', 'Please fill in all required fields.', 'error');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                Swal.fire('Error', 'Please enter a valid email address.', 'error');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                Swal.fire('Error', 'Password is not valid. Enter 8–24 alphanumeric characters.', 'error');
+                return;
+            }
+
+            if (!validatePhone(phone)) {
+                Swal.fire('Error', 'Phone number must contain exactly 9 digits.', 'error');
+                return;
+            }
+
+            if (!validateZip(zip)) {
+                Swal.fire('Error', 'ZIP code must contain exactly 4 digits.', 'error');
+                return;
+            }
+            Swal.fire({
+                icon: 'success',
+                title: 'All good!',
+                text: 'All data is entered correctly. Continuing...',
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false
+            });
+        });
+        const logo = document.querySelector('.glava .logo');
+        logo.addEventListener('click', function() {
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: 'Avtor Martin Furlan',
+                confirmButtonText: 'OK'
+            });
+        });
+    </script>
+</body>
+</html>
