@@ -196,6 +196,7 @@
                 Swal.fire('Error', 'ZIP code must contain exactly 4 digits.', 'error');
                 return;
             }
+
             Swal.fire({
                 icon: 'success',
                 title: 'All good!',
@@ -203,8 +204,11 @@
                 timer: 2000,
                 timerProgressBar: true,
                 showConfirmButton: false
+            }).then(() => {
+                window.location.href = "index.html";
             });
         });
+
         const logo = document.querySelector('.glava .logo');
         logo.addEventListener('click', function() {
             Swal.fire({
@@ -217,4 +221,3 @@
     </script>
 </body>
 </html>
-
