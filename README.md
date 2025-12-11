@@ -24,12 +24,10 @@
 ## Author
 **Martin Furlan**  
 2024/25
-## Primer spletnih strani
 
-### Originalna spletna stran
+### Original website
 ![Originalna spletna stran](Slike/original.png)
-
-### Moja spletna stran
+### My website
 ![Moja spletna stran](Slike/spletna.png)
 
 
